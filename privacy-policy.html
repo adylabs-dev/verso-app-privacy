@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Verso</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #FAF8F2;
+      --surface:  #F4F1E9;
+      --ink:      #1A1815;
+      --muted:    #8B8474;
+      --outline:  #D6CFBE;
+      --accent:   #A8551E;
+      --accentbg: #F0E0CE;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      padding: 0 0 80px;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Header ── */
+    .site-header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--outline);
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      width: 32px; height: 32px;
+      border-radius: 6px;
+      background: #0A0A0A;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .logo svg { width: 20px; height: 20px; }
+
+    .site-header .brand { font-size: 17px; font-weight: 600; color: var(--ink); }
+    .site-header .sep   { color: var(--outline); margin: 0 4px; }
+    .site-header .page  { font-size: 15px; color: var(--muted); }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 24px 0;
+    }
+
+    /* ── Hero ── */
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+
+    .meta {
+      font-size: 13px;
+      color: var(--muted);
+      padding: 12px 0;
+      border-top: 1px solid var(--outline);
+      border-bottom: 1px solid var(--outline);
+      margin-bottom: 40px;
+    }
+
+    /* ── Section rule ── */
+    .section-rule {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 40px 0 20px;
+    }
+    .section-rule::before {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--outline);
+    }
+    .section-rule span {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      white-space: nowrap;
+      font-weight: 600;
+    }
+    .section-rule::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--outline);
+    }
+
+    /* ── Typography ── */
+    h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 12px;
+      letter-spacing: -0.2px;
+    }
+
+    h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 20px 0 8px;
+    }
+
+    p { margin-bottom: 14px; }
+
+    ul, ol {
+      margin: 0 0 14px 20px;
+    }
+    li { margin-bottom: 6px; }
+
+    /* ── Info box ── */
+    .infobox {
+      background: var(--accentbg);
+      border-left: 3px solid var(--accent);
+      padding: 14px 18px;
+      margin: 24px 0;
+      font-size: 14px;
+    }
+
+    /* ── Data table ── */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin: 16px 0 24px;
+    }
+    .data-table th {
+      text-align: left;
+      padding: 10px 12px;
+      background: var(--surface);
+      border: 1px solid var(--outline);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .data-table td {
+      padding: 10px 12px;
+      border: 1px solid var(--outline);
+      vertical-align: top;
+    }
+    .data-table tr:nth-child(even) td { background: var(--surface); }
+
+    /* ── Rights grid ── */
+    .rights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+      margin: 16px 0 24px;
+    }
+    .right-card {
+      border: 1px solid var(--outline);
+      padding: 14px 16px;
+    }
+    .right-card strong { display: block; font-size: 14px; margin-bottom: 4px; }
+    .right-card span { font-size: 13px; color: var(--muted); }
+
+    /* ── Footer ── */
+    .doc-footer {
+      margin-top: 56px;
+      padding-top: 24px;
+      border-top: 1px solid var(--outline);
+      font-size: 13px;
+      color: var(--muted);
+      text-align: center;
+    }
+    .back-link { display: inline-block; margin-top: 20px; font-size: 13px; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="logo">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M14,22 L30,22 L50,50 L70,22 L86,22 L50,80 Z" fill="#F5F1E8"/>
+      </svg>
+    </div>
+    <span class="brand">Verso</span>
+    <span class="sep">/</span>
+    <span class="page">Privacy Policy</span>
+  </header>
+
+  <div class="container">
+
+    <p class="hero-eyebrow">Legal · GDPR Compliant</p>
+    <h1>Privacy Policy</h1>
+    <p class="meta">Last updated: 26 May 2025 &nbsp;·&nbsp; Effective date: 26 May 2025 &nbsp;·&nbsp; Version 1.0</p>
+
+    <div class="infobox">
+      <strong>Plain-language summary:</strong> Verso is a PDF tool. Most processing happens on your device. We do not sell your data. We use Google services (Firebase, AdMob) and optional AI features that may send PDF text to third-party servers only when you use them. You have full GDPR rights.
+    </div>
+
+    <!-- 1 -->
+    <div class="section-rule"><span>1</span></div>
+    <h2>Who We Are</h2>
+    <p>Verso ("we", "us", "our") is an Android application for reading, editing, organizing, and transforming PDF documents. It is developed and operated by <strong>AdiLabs</strong>, an independent developer based in the European Union.</p>
+    <p><strong>Data Controller</strong><br>
+    AdiLabs<br>
+    Email: <a href="mailto:amagahabdeladim@gmail.com">amagahabdeladim@gmail.com</a></p>
+    <p>This Privacy Policy explains what personal data we collect, why we collect it, how long we keep it, and what rights you have under the General Data Protection Regulation (GDPR) and other applicable laws.</p>
+
+    <!-- 2 -->
+    <div class="section-rule"><span>2</span></div>
+    <h2>Data We Collect and Why</h2>
+    <p>We collect only the minimum data necessary to operate the app. The table below maps each category of data to the feature that requires it and the legal basis we rely on.</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>What it includes</th>
+          <th>Why / Feature</th>
+          <th>Legal Basis (GDPR)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Device &amp; App data</strong></td>
+          <td>Device model, OS version, app version, crash logs, anonymised usage events</td>
+          <td>Crash reporting &amp; stability (Firebase Crashlytics / Analytics)</td>
+          <td>Legitimate interest (Art. 6(1)(f))</td>
+        </tr>
+        <tr>
+          <td><strong>Advertising identifiers</strong></td>
+          <td>Android Advertising ID (GAID), IP address (anonymised), ad interaction events</td>
+          <td>Displaying banner ads via Google AdMob (shown on Home &amp; Files screens)</td>
+          <td>Consent (Art. 6(1)(a))</td>
+        </tr>
+        <tr>
+          <td><strong>Purchase &amp; subscription data</strong></td>
+          <td>Subscription status (active/expired), purchase tokens issued by Google Play</td>
+          <td>Unlocking Verso Pro features; restoring purchases</td>
+          <td>Performance of a contract (Art. 6(1)(b))</td>
+        </tr>
+        <tr>
+          <td><strong>PDF content (AI features)</strong></td>
+          <td>Extracted text from PDFs you choose to process with Flashcards, Translate, Listen, or Multi-Doc Chat</td>
+          <td>Generating AI responses via third-party AI service providers</td>
+          <td>Consent + legitimate interest (Art. 6(1)(a/f))</td>
+        </tr>
+        <tr>
+          <td><strong>Files &amp; camera</strong></td>
+          <td>PDFs and images you explicitly open; camera frames when using the Scanner tool</td>
+          <td>Core PDF reading, editing, and scanning — processed locally on your device</td>
+          <td>Performance of a contract (Art. 6(1)(b))</td>
+        </tr>
+        <tr>
+          <td><strong>App preferences</strong></td>
+          <td>Your theme choice, sort preference, recent files list, tool usage frequency</td>
+          <td>Personalising the home screen; remembered between sessions</td>
+          <td>Legitimate interest (Art. 6(1)(f))</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>What we do NOT collect</h3>
+    <ul>
+      <li>We do not collect your name, email address, or any account credentials (no login required).</li>
+      <li>We do not read, upload, or store your PDF files on our own servers. File processing is performed locally on your device unless you explicitly invoke an AI feature.</li>
+      <li>We do not sell, rent, or trade your personal data with any third party for their own marketing purposes.</li>
+      <li>We do not use cross-app tracking or build advertising profiles beyond what Google AdMob requires to serve contextual ads.</li>
+    </ul>
+
+    <!-- 3 -->
+    <div class="section-rule"><span>3</span></div>
+    <h2>AI Features &amp; Data Processing</h2>
+    <p>When you use <strong>Flashcards, Translate, Listen (Audio Summary)</strong>, or <strong>Multi-Doc Chat</strong>, Verso extracts text from the PDF you have opened and sends it to a third-party AI service provider to generate responses.</p>
+    <ul>
+      <li><strong>What is sent:</strong> Only the text content of the pages you process — no file metadata, no account identifiers.</li>
+      <li><strong>What is not sent:</strong> Images, annotations, signatures, or any file that has not been explicitly submitted by you.</li>
+      <li><strong>Retention by AI provider:</strong> Data is processed transiently. Third-party providers operate under their own privacy policies. We select providers that commit to not training models on user data submitted via their API.</li>
+      <li><strong>Your control:</strong> AI features are fully optional. You can use all other Verso tools without any data leaving your device.</li>
+    </ul>
+    <div class="infobox">
+      Before sending any PDF content to an AI service, Verso will display a prompt describing what will be processed. You can cancel at any time.
+    </div>
+
+    <!-- 4 -->
+    <div class="section-rule"><span>4</span></div>
+    <h2>Third-Party Services</h2>
+    <p>Verso integrates the following third-party services. Each operates under its own privacy policy, which we link to below.</p>
+    <table class="data-table">
+      <thead>
+        <tr><th>Service</th><th>Provider</th><th>Purpose</th><th>Privacy Policy</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Firebase Analytics &amp; Crashlytics</td>
+          <td>Google LLC</td>
+          <td>Anonymous usage analytics; crash reporting</td>
+          <td><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">firebase.google.com/support/privacy</a></td>
+        </tr>
+        <tr>
+          <td>Google AdMob</td>
+          <td>Google LLC</td>
+          <td>Banner advertisements (Home &amp; Files screens only)</td>
+          <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></td>
+        </tr>
+        <tr>
+          <td>Google Play Billing</td>
+          <td>Google LLC</td>
+          <td>In-app subscription purchases (Verso Pro)</td>
+          <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></td>
+        </tr>
+        <tr>
+          <td>AI Processing API</td>
+          <td>Third-party AI provider</td>
+          <td>Processing PDF text for AI features (optional)</td>
+          <td>Displayed in-app before each use</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>These services may transfer data to countries outside the European Economic Area (EEA). Where such transfers occur, Google LLC relies on Standard Contractual Clauses (SCCs) as approved by the European Commission under Article 46 GDPR.</p>
+
+    <!-- 5 -->
+    <div class="section-rule"><span>5</span></div>
+    <h2>Data Retention</h2>
+    <ul>
+      <li><strong>Crash &amp; analytics data</strong> — retained by Google Firebase for up to 14 months, then automatically deleted.</li>
+      <li><strong>Advertising data</strong> — managed by Google AdMob per Google's data retention policies.</li>
+      <li><strong>Subscription tokens</strong> — retained only as long as you hold an active subscription. Tokens are invalidated by Google Play when a subscription expires or is cancelled.</li>
+      <li><strong>AI processing content</strong> — not retained by us. Retention by the AI provider is governed by their API data handling terms (typically discarded after the response is generated).</li>
+      <li><strong>Local app data</strong> (preferences, recent files list) — stored on your device. Deleted when you uninstall the app.</li>
+    </ul>
+
+    <!-- 6 -->
+    <div class="section-rule"><span>6</span></div>
+    <h2>Permissions</h2>
+    <p>Verso requests the following Android permissions:</p>
+    <table class="data-table">
+      <thead>
+        <tr><th>Permission</th><th>Why it's needed</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>READ_MEDIA_IMAGES</code> / <code>READ_EXTERNAL_STORAGE</code></td>
+          <td>To open PDF files and images from your device storage</td>
+        </tr>
+        <tr>
+          <td><code>WRITE_EXTERNAL_STORAGE</code></td>
+          <td>To save processed PDFs back to your device (Android 9 and below)</td>
+        </tr>
+        <tr>
+          <td><code>CAMERA</code></td>
+          <td>To capture document pages using the Scanner tool — only activated when you tap "Scan"</td>
+        </tr>
+        <tr>
+          <td><code>INTERNET</code></td>
+          <td>To display ads, send crash reports, verify subscriptions, and use AI features</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>You can revoke camera and storage permissions at any time in <strong>Android Settings → Apps → Verso → Permissions</strong>. Revoking storage access will prevent the app from opening files.</p>
+
+    <!-- 7 -->
+    <div class="section-rule"><span>7</span></div>
+    <h2>Your Rights Under GDPR</h2>
+    <p>As a resident of the European Economic Area, you have the following rights regarding your personal data:</p>
+    <div class="rights-grid">
+      <div class="right-card">
+        <strong>Right of Access (Art. 15)</strong>
+        <span>Request a copy of the personal data we hold about you.</span>
+      </div>
+      <div class="right-card">
+        <strong>Right to Rectification (Art. 16)</strong>
+        <span>Ask us to correct inaccurate or incomplete data.</span>
+      </div>
+      <div class="right-card">
+        <strong>Right to Erasure (Art. 17)</strong>
+        <span>Request deletion of your personal data ("right to be forgotten").</span>
+      </div>
+      <div class="right-card">
+        <strong>Right to Restriction (Art. 18)</strong>
+        <span>Ask us to pause processing of your data in certain circumstances.</span>
+      </div>
+      <div class="right-card">
+        <strong>Right to Portability (Art. 20)</strong>
+        <span>Receive your data in a machine-readable format.</span>
+      </div>
+      <div class="right-card">
+        <strong>Right to Object (Art. 21)</strong>
+        <span>Object to processing based on legitimate interest, including profiling.</span>
+      </div>
+      <div class="right-card">
+        <strong>Withdraw Consent (Art. 7)</strong>
+        <span>Withdraw any consent you have given at any time without penalty.</span>
+      </div>
+      <div class="right-card">
+        <strong>Lodge a Complaint (Art. 77)</strong>
+        <span>File a complaint with your national supervisory authority.</span>
+      </div>
+    </div>
+    <p>To exercise any of these rights, contact us at <a href="mailto:amagahabdeladim@gmail.com">amagahabdeladim@gmail.com</a>. We will respond within <strong>30 days</strong>. For data held by Google (Firebase, AdMob, Play Billing), requests must be directed to Google LLC via their privacy tools.</p>
+
+    <!-- 8 -->
+    <div class="section-rule"><span>8</span></div>
+    <h2>Children's Privacy</h2>
+    <p>Verso is not directed at children under 13 years of age. We do not knowingly collect personal data from children under 13. If you believe a child has provided us with personal data, please contact us at <a href="mailto:amagahabdeladim@gmail.com">amagahabdeladim@gmail.com</a> and we will delete it promptly.</p>
+
+    <!-- 9 -->
+    <div class="section-rule"><span>9</span></div>
+    <h2>Data Security</h2>
+    <p>We implement appropriate technical and organisational measures to protect your data against unauthorised access, alteration, disclosure, or destruction. These include:</p>
+    <ul>
+      <li>All data in transit is encrypted using TLS 1.2 or higher.</li>
+      <li>Firebase services are secured by Google's enterprise-grade infrastructure.</li>
+      <li>We do not store payment card data — all billing is handled entirely by Google Play.</li>
+      <li>PDF files you process remain on your device unless you deliberately invoke an AI feature.</li>
+    </ul>
+    <p>No method of transmission over the internet is 100% secure. While we strive to use commercially acceptable means to protect your data, we cannot guarantee its absolute security.</p>
+
+    <!-- 10 -->
+    <div class="section-rule"><span>10</span></div>
+    <h2>Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. When we do, we will revise the "Last updated" date at the top of this page and post the new version to this URL. For material changes, we will notify you via an in-app notification.</p>
+    <p>Continued use of Verso after changes are posted constitutes your acknowledgement of the updated policy.</p>
+
+    <!-- 11 -->
+    <div class="section-rule"><span>11</span></div>
+    <h2>Contact Us</h2>
+    <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please reach out:</p>
+    <p>
+      <strong>AdiLabs — Verso Developer</strong><br>
+      Email: <a href="mailto:amagahabdeladim@gmail.com">amagahabdeladim@gmail.com</a><br>
+      Response time: within 30 days (GDPR statutory deadline)
+    </p>
+
+    <a class="back-link" href="index.html">← Back to Legal Index</a>
+
+    <div class="doc-footer">
+      <p>© 2025 AdiLabs · Verso PDF Reader &amp; Editor</p>
+      <p style="margin-top:6px;"><a href="terms-of-use.html">Terms of Use</a> &nbsp;·&nbsp; <a href="index.html">Legal Index</a></p>
+    </div>
+
+  </div><!-- /container -->
+</body>
+</html>
