@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Deletion Request — Verso</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #FAF8F2;
+      --surface:  #F4F1E9;
+      --ink:      #1A1815;
+      --muted:    #8B8474;
+      --outline:  #D6CFBE;
+      --accent:   #A8551E;
+      --accentbg: #F0E0CE;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      padding: 0 0 80px;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .site-header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--outline);
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo {
+      width: 32px; height: 32px;
+      border-radius: 6px;
+      background: #0A0A0A;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .logo svg { width: 20px; height: 20px; }
+    .site-header .brand { font-size: 17px; font-weight: 600; color: var(--ink); }
+    .site-header .sep   { color: var(--outline); margin: 0 4px; }
+    .site-header .page  { font-size: 15px; color: var(--muted); }
+
+    .container { max-width: 640px; margin: 0 auto; padding: 48px 24px 0; }
+
+    .hero-eyebrow {
+      font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent); font-weight: 600; margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: clamp(26px, 5vw, 36px); font-weight: 700;
+      letter-spacing: -0.4px; line-height: 1.2; color: var(--ink); margin-bottom: 16px;
+    }
+
+    .meta {
+      font-size: 13px; color: var(--muted); padding: 12px 0;
+      border-top: 1px solid var(--outline); border-bottom: 1px solid var(--outline);
+      margin-bottom: 36px;
+    }
+
+    .infobox {
+      background: var(--accentbg); border-left: 3px solid var(--accent);
+      padding: 14px 18px; margin: 24px 0; font-size: 14px;
+    }
+
+    h2 { font-size: 18px; font-weight: 700; color: var(--ink); margin: 32px 0 10px; letter-spacing: -0.2px; }
+
+    p { margin-bottom: 14px; }
+    ul { margin: 0 0 14px 20px; }
+    li { margin-bottom: 6px; }
+
+    /* ── Email card ── */
+    .email-card {
+      background: var(--surface);
+      border: 1px solid var(--outline);
+      padding: 28px 32px;
+      margin: 32px 0;
+      text-align: center;
+    }
+
+    .email-card p {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .email-link {
+      display: inline-block;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: -0.2px;
+      text-decoration: none;
+      padding: 12px 24px;
+      border: 2px solid var(--accent);
+    }
+
+    .email-link:hover {
+      background: var(--accentbg);
+      text-decoration: none;
+    }
+
+    .subject-hint {
+      margin-top: 12px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .subject-hint code {
+      background: var(--outline);
+      padding: 2px 6px;
+      font-size: 12px;
+    }
+
+    /* ── What gets deleted table ── */
+    .delete-table {
+      width: 100%; border-collapse: collapse; font-size: 14px; margin: 16px 0 24px;
+    }
+    .delete-table th {
+      text-align: left; padding: 10px 12px; background: var(--surface);
+      border: 1px solid var(--outline); font-size: 11px; text-transform: uppercase;
+      letter-spacing: 0.08em; color: var(--muted); font-weight: 600;
+    }
+    .delete-table td { padding: 10px 12px; border: 1px solid var(--outline); vertical-align: top; }
+    .delete-table tr:nth-child(even) td { background: var(--surface); }
+
+    .badge-del   { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 7px; background: #F5E8E8; color: #8E3B2C; }
+    .badge-auto  { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 7px; background: #E8F0E8; color: #3F5A3C; }
+    .badge-local { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 7px; background: var(--accentbg); color: var(--accent); }
+
+    .doc-footer {
+      margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--outline);
+      font-size: 13px; color: var(--muted); text-align: center;
+    }
+    .back-link { display: inline-block; margin-top: 20px; font-size: 13px; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="logo">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M14,22 L30,22 L50,50 L70,22 L86,22 L50,80 Z" fill="#F5F1E8"/>
+      </svg>
+    </div>
+    <span class="brand">Verso</span>
+    <span class="sep">/</span>
+    <span class="page">Data Deletion</span>
+  </header>
+
+  <div class="container">
+
+    <p class="hero-eyebrow">Privacy · Your Rights</p>
+    <h1>Request Data Deletion</h1>
+    <p class="meta">We respond within 30 days · GDPR Article 17 — Right to Erasure</p>
+
+    <div class="infobox">
+      <strong>No account needed.</strong> Verso does not require sign-up. Most data is stored locally on your device and is deleted automatically when you uninstall the app.
+    </div>
+
+    <h2>How to request deletion</h2>
+    <p>Send us an email with the subject line below. We will delete all server-side data associated with your anonymous user ID within <strong>30 days</strong> and confirm by reply.</p>
+
+    <div class="email-card">
+      <p>Tap to open your email app</p>
+      <a class="email-link" href="mailto:adylabs.android@gmail.com?subject=Data%20Deletion%20Request%20%E2%80%94%20Verso&body=Hello%2C%0A%0AI%20would%20like%20to%20request%20deletion%20of%20all%20data%20associated%20with%20my%20Verso%20app%20usage.%0A%0ADevice%3A%20%5Byour%20device%20model%5D%0AApproximate%20date%20last%20used%3A%20%5Bdate%5D%0A%0AThank%20you.">
+        adylabs.android@gmail.com
+      </a>
+      <p class="subject-hint">Subject: <code>Data Deletion Request — Verso</code></p>
+    </div>
+
+    <h2>What gets deleted</h2>
+    <table class="delete-table">
+      <thead>
+        <tr><th>Data</th><th>Where stored</th><th>Action</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Anonymous user ID (Firebase)</td>
+          <td>Google Firebase servers</td>
+          <td><span class="badge-del">Deleted on request</span></td>
+        </tr>
+        <tr>
+          <td>Crash reports &amp; analytics</td>
+          <td>Firebase Crashlytics / Analytics</td>
+          <td><span class="badge-auto">Auto-deleted after 14 months</span></td>
+        </tr>
+        <tr>
+          <td>Ad interaction data</td>
+          <td>Google AdMob</td>
+          <td><span class="badge-auto">Managed by Google</span></td>
+        </tr>
+        <tr>
+          <td>Your PDF files</td>
+          <td>Your device only</td>
+          <td><span class="badge-local">Uninstall the app</span></td>
+        </tr>
+        <tr>
+          <td>App preferences &amp; recent files list</td>
+          <td>Your device only</td>
+          <td><span class="badge-local">Uninstall the app</span></td>
+        </tr>
+        <tr>
+          <td>Subscription status</td>
+          <td>Google Play</td>
+          <td><span class="badge-auto">Managed by Google Play</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Uninstalling the app</h2>
+    <p>Uninstalling Verso from your device removes all locally stored data immediately — your PDF files, preferences, recent file history, and cached thumbnails. No email needed for local data.</p>
+    <p>For data held by Google (AdMob, Firebase Analytics, Google Play), you can also manage your preferences directly through <a href="https://myaccount.google.com/data-and-privacy" target="_blank" rel="noopener">Google's privacy controls</a>.</p>
+
+    <a class="back-link" href="index.html">← Back to Legal Index</a>
+
+    <div class="doc-footer">
+      <p>© 2025 AdyLabs · Verso PDF Reader &amp; Editor</p>
+      <p style="margin-top:6px;">
+        <a href="privacy-policy.html">Privacy Policy</a> &nbsp;·&nbsp;
+        <a href="terms-of-use.html">Terms of Use</a> &nbsp;·&nbsp;
+        <a href="index.html">Legal Index</a>
+      </p>
+    </div>
+
+  </div>
+</body>
+</html>
